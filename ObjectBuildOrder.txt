@@ -52,6 +52,7 @@ Install the scripts in the following order:
 * LabTechnician.sql
 * Medication.sql
 * Appointment.sql
+* AppointmentType.sql
 * InsuranceCarrier.sql
 
 There are still a few more tables, but I need to resolve an 
