@@ -51,3 +51,8 @@ Install the scripts in the following order:
   which is why it is listed last
 * LabTechnician.sql
 * Medication.sql
+* Appointment.sql
+* InsuranceCarrier.sql
+
+There are still a few more tables, but I need to resolve an 
+issue.
