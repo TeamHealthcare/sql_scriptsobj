@@ -1,0 +1,53 @@
+Several of the scripts which will always be named:
+
+[object].sql
+
+Where object is the name of the object and can be a:
+
+* Table
+* View
+* Function
+* Stored Procedure
+
+The tables in the HealthCare project can generally be 
+classified as a stand-alone table or a table with a 
+relationship.  Typically a foreign key.  The tables that 
+have foreign keys must have their dependency resolved 
+first.
+
+For example:
+
+The InsuranceCarrier table has a one to many relationship 
+to the ElectronicPatient table.  Therefore, it would be 
+practical to run the InsuranceCarrier script and populate 
+the InsuranceCarrier table with data before you load the 
+ElectronicPatient table.  You will not be allowed to save 
+an ElectronicPatient record if there's not a valid 
+corresponding InsuranceCarrierId in the InsuranceCarrier 
+table.
+
+At face value, that may be cause for concern.  If you're 
+thinking, why can't we just fill the data and worry about 
+the dependencies later, that approach can and often *will* 
+lead to problems down the line.
+
+Each one of the stand-along table scripts will typically 
+have a couple of sql statements to populate the data right 
+away to mitigate any possible causes.  Since I will be 
+managing the data layer, this is something that shouldn't 
+impact any one.  This is a courtesy notice should you 
+decide to get the project running on your own machine.
+
+Once you've run the scripts, it would be a good idea to run 
+a generic SELECT * FROM [table] to ensure that there is 
+data.
+
+==========================================================
+Install the scripts in the following order:
+
+* User.sql
+* Subystem.sql
+* UserSubsystem.sql - This is an example of a dependency 
+  which is why it is listed last
+* LabTechnician.sql
+* Medication.sql
