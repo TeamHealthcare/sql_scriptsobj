@@ -1,6 +1,6 @@
 CREATE TABLE LabTechnician
 (
-    LabTechnicianId         INT				NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+    LabTechnicianId         INT        NOT NULL  AUTO_INCREMENT PRIMARY KEY,
     LabTechnician           VARCHAR(64)     NOT NULL
 );
 
