@@ -6,10 +6,9 @@ CREATE TABLE Appointment
 	AppointmentDate		DATE            NOT NULL,
 	StartTime			INT             NOT NULL,
 	EndTime             INT             NOT NULL,
-    DateEntered         DATETIME		NOT NULL,,
+    DateEntered         DATETIME		NOT NULL,
     CONSTRAINT          FK_Appointment_AppointmentType FOREIGN KEY (AppointmentTypeId)
 	REFERENCES          AppointmentType(AppointmentTypeId)
-	
 );
 
 INSERT INTO Appointment (Appointment, AppointmentTypeId, AppointmentDate, StartTime, EndTime, DateEntered) 
