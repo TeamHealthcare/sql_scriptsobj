@@ -881,7 +881,7 @@
               <Port xsi:type="LinkPort">
                 <Location>
                   <X>-145 px</X>
-                  <Y>-2.38409626263092E-07 px</Y>
+                  <Y>-2.38409683106511E-07 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Right</Align>
@@ -986,7 +986,7 @@
             <PortAnchors>
               <Port xsi:type="LinkPort">
                 <Location>
-                  <X>1.86385657804044 px</X>
+                  <X>1.86385657803999 px</X>
                   <Y>201.96875 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
@@ -1232,7 +1232,7 @@
               <Port xsi:type="LinkPort">
                 <Location>
                   <X>-377.5 px</X>
-                  <Y>-0.39941535956217 px</Y>
+                  <Y>-0.399415359561999 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Right</Align>
@@ -1254,7 +1254,7 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>-1330 px</X>
+              <X>-1490 px</X>
               <Y>-460 px</Y>
             </Location>
             <Size>
@@ -1277,8 +1277,8 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>-1330 px</X>
-              <Y>-160 px</Y>
+              <X>-1370 px</X>
+              <Y>-120 px</Y>
             </Location>
             <Size>
               <Width>230 px</Width>
@@ -1507,7 +1507,25 @@
                 </CustomProperties>
               </Port>
             </PortAnchors>
-            <IsManuallyRouted>false</IsManuallyRouted>
+            <BendPoints>
+              <PointD>
+                <X>-1255 px</X>
+                <Y>-140 px</Y>
+              </PointD>
+              <PointD>
+                <X>-1310 px</X>
+                <Y>-140 px</Y>
+              </PointD>
+              <PointD>
+                <X>-1310 px</X>
+                <Y>-233.75 px</Y>
+              </PointD>
+              <PointD>
+                <X>-1375 px</X>
+                <Y>-233.75 px</Y>
+              </PointD>
+            </BendPoints>
+            <IsManuallyRouted>true</IsManuallyRouted>
             <DbOid>
               <Path>healthcare.equipmenthistory.FK_EH_EIM</Path>
               <TypeName>ForeignKey</TypeName>
@@ -1523,8 +1541,8 @@
             <PortAnchors>
               <Port xsi:type="LinkPort">
                 <Location>
-                  <X>0 px</X>
-                  <Y>52.5 px</Y>
+                  <X>55 px</X>
+                  <Y>66.875 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Top</Align>
@@ -1536,8 +1554,8 @@
               </Port>
             </PortAnchors>
             <CommentOffset>
-              <X>22 px</X>
-              <Y>2 px</Y>
+              <X>32.2395858764648 px</X>
+              <Y>-45 px</Y>
             </CommentOffset>
           </Model>
           <Model xsi:type="TableModel">
@@ -1731,13 +1749,322 @@
             </Size>
             <Text>The database peer review had a comment about the attributes for the Lab Order table not having the names as stated in the documentation.  The names are valid, however, to access those names means you have to traverse the relationship.  For the LabOrder table, to access the PatientName, you traverse the relationship to ElectronicPatient to get the PatientName.</Text>
           </Model>
+          <Model xsi:type="TableModel">
+            <CustomProperties>
+              <OID>103</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>-1690 px</X>
+              <Y>-460 px</Y>
+            </Location>
+            <Size>
+              <Width>189 px</Width>
+              <Height>107 px</Height>
+            </Size>
+            <DbOid>
+              <Path>healthcare.subsystem</Path>
+              <TypeName>Table</TypeName>
+            </DbOid>
+            <Compartments>
+              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <IndexesCollapsed>True</IndexesCollapsed>
+              <TriggersCollapsed>True</TriggersCollapsed>
+            </Compartments>
+          </Model>
+          <Model xsi:type="TableModel">
+            <CustomProperties>
+              <OID>104</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>-1650 px</X>
+              <Y>170 px</Y>
+            </Location>
+            <Size>
+              <Width>223 px</Width>
+              <Height>161 px</Height>
+            </Size>
+            <DbOid>
+              <Path>healthcare.user</Path>
+              <TypeName>Table</TypeName>
+            </DbOid>
+            <Compartments>
+              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <IndexesCollapsed>True</IndexesCollapsed>
+              <TriggersCollapsed>True</TriggersCollapsed>
+            </Compartments>
+          </Model>
+          <Model xsi:type="TableModel">
+            <CustomProperties>
+              <OID>105</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>-1650 px</X>
+              <Y>-110 px</Y>
+            </Location>
+            <Size>
+              <Width>154 px</Width>
+              <Height>124 px</Height>
+            </Size>
+            <DbOid>
+              <Path>healthcare.usersubsystem</Path>
+              <TypeName>Table</TypeName>
+            </DbOid>
+            <Compartments>
+              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <IndexesCollapsed>True</IndexesCollapsed>
+              <TriggersCollapsed>True</TriggersCollapsed>
+            </Compartments>
+          </Model>
+          <Model xsi:type="RelationLinkModel">
+            <CustomProperties>
+              <OID>106</OID>
+              <Comment>107</Comment>
+              <OutModel>105</OutModel>
+              <InModel>103</InModel>
+              <OutPort>108</OutPort>
+              <InPort>109</InPort>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port>
+                <Location>
+                  <X>74.5 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Top</Align>
+                <CustomProperties>
+                  <OID>108</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>114.5 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>109</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>healthcare.usersubsystem.FK_UserSubsystem_Subsystem</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>107</OID>
+              <HolderModel>106</HolderModel>
+              <Port>110</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>0 px</X>
+                  <Y>121.5 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
+                <Align>Top</Align>
+                <CustomProperties>
+                  <OID>110</OID>
+                  <PortType>FixedAnchor</PortType>
+                </CustomProperties>
+                <LinkPortAnchor>OutPoint</LinkPortAnchor>
+              </Port>
+            </PortAnchors>
+            <CommentOffset>
+              <X>52.2395858764648 px</X>
+              <Y>13.25 px</Y>
+            </CommentOffset>
+          </Model>
+          <Model xsi:type="RelationLinkModel">
+            <CustomProperties>
+              <OID>111</OID>
+              <Comment>112</Comment>
+              <OutModel>105</OutModel>
+              <InModel>104</InModel>
+              <OutPort>113</OutPort>
+              <InPort>114</InPort>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port>
+                <Location>
+                  <X>77 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>113</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>87 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Top</Align>
+                <CustomProperties>
+                  <OID>114</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <BendPoints>
+              <PointD>
+                <X>-1573 px</X>
+                <Y>34 px</Y>
+              </PointD>
+              <PointD>
+                <X>-1563 px</X>
+                <Y>34 px</Y>
+              </PointD>
+            </BendPoints>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>healthcare.usersubsystem.FK_UserSubsystem_User</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>112</OID>
+              <HolderModel>111</HolderModel>
+              <Port>115</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>-10 px</X>
+                  <Y>-88 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>115</OID>
+                  <PortType>FixedAnchor</PortType>
+                </CustomProperties>
+                <LinkPortAnchor>OutPoint</LinkPortAnchor>
+              </Port>
+            </PortAnchors>
+            <CommentOffset>
+              <X>126 px</X>
+              <Y>23 px</Y>
+            </CommentOffset>
+          </Model>
+          <Model xsi:type="TableModel">
+            <CustomProperties>
+              <OID>116</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>-1240 px</X>
+              <Y>-450 px</Y>
+            </Location>
+            <Size>
+              <Width>224 px</Width>
+              <Height>140 px</Height>
+            </Size>
+            <DbOid>
+              <Path>healthcare.service</Path>
+              <TypeName>Table</TypeName>
+            </DbOid>
+            <Compartments>
+              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <IndexesCollapsed>True</IndexesCollapsed>
+              <TriggersCollapsed>True</TriggersCollapsed>
+            </Compartments>
+          </Model>
+          <Model xsi:type="RelationLinkModel">
+            <CustomProperties>
+              <OID>117</OID>
+              <Comment>118</Comment>
+              <OutModel>116</OutModel>
+              <InModel>2</InModel>
+              <OutPort>119</OutPort>
+              <InPort>120</InPort>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>63 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>119</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>83 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Left</Align>
+                <CustomProperties>
+                  <OID>120</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>healthcare.service.FK_service_insurancecarrier_InsuranceCarrierId</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>118</OID>
+              <HolderModel>117</HolderModel>
+              <Port>121</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>-18 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>121</OID>
+                  <PortType>FixedAnchor</PortType>
+                </CustomProperties>
+                <LinkPortAnchor>OutPoint</LinkPortAnchor>
+              </Port>
+            </PortAnchors>
+            <CommentOffset>
+              <X>-224 px</X>
+              <Y>87 px</Y>
+            </CommentOffset>
+          </Model>
         </Children>
         <ViewPort>
           <ScaleMode>Free</ScaleMode>
-          <Scale>0.954209864</Scale>
+          <Scale>0.7337699</Scale>
           <Location>
-            <X>-1705.07564534411 px</X>
-            <Y>-490.458145097893 px</Y>
+            <X>-2322.2539042072 px</X>
+            <Y>-636.439303443467 px</Y>
           </Location>
         </ViewPort>
       </Model>
