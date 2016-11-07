@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `healthcare`.`insurancecarrier` (
   `InsuranceCarrierId` INT(11) NOT NULL AUTO_INCREMENT,
   `Carrier` VARCHAR(255) NOT NULL,
   `Address` VARCHAR(255) NOT NULL,
-  `Active` BIT(1) NOT NULL,
+  `Active` INT(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`InsuranceCarrierId`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
@@ -333,6 +333,23 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `healthcare`.`service`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `healthcare`.`service` (
+  `ServiceId` INT(11) NOT NULL AUTO_INCREMENT,
+  `InsuranceCarrierId` INT(11) NOT NULL,
+  `Description` VARCHAR(255) NOT NULL,
+  `Cost` DECIMAL(19,2) NOT NULL,
+  UNIQUE INDEX `ServiceId` (`ServiceId` ASC),
+  INDEX `FK_service_insurancecarrier_InsuranceCarrierId` (`InsuranceCarrierId` ASC),
+  CONSTRAINT `FK_service_insurancecarrier_InsuranceCarrierId`
+    FOREIGN KEY (`InsuranceCarrierId`)
+    REFERENCES `healthcare`.`insurancecarrier` (`InsuranceCarrierId`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
 -- Table `healthcare`.`subsystem`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `healthcare`.`subsystem` (
@@ -377,19 +394,6 @@ CREATE TABLE IF NOT EXISTS `healthcare`.`usersubsystem` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-USE `healthcare` ;
-
--- -----------------------------------------------------
--- Placeholder table for view `healthcare`.`vw_laborder`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `healthcare`.`vw_laborder` (`LabOrderId` INT, `Name` INT, `LabTest` INT, `LabTechnician` INT);
-
--- -----------------------------------------------------
--- View `healthcare`.`vw_laborder`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `healthcare`.`vw_laborder`;
-USE `healthcare`;
-CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `healthcare`.`vw_laborder` AS select `lo`.`LabOrderId` AS `LabOrderId`,`p`.`Name` AS `Name`,`ltt`.`LabTest` AS `LabTest`,`lt`.`LabTechnician` AS `LabTechnician` from ((((`healthcare`.`laborder` `lo` join `healthcare`.`electronicpatient` `e` on((`lo`.`PatientId` = `e`.`PatientId`))) join `healthcare`.`physician` `p` on((`lo`.`EmployeeId` = `p`.`EmployeeId`))) join `healthcare`.`labtesttype` `ltt` on((`lo`.`LabTestTypeId` = `ltt`.`LabTestTypeId`))) join `healthcare`.`labtechnician` `lt` on((`lo`.`LabTechnicianId` = `lt`.`LabTechnicianId`)));
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
