@@ -1,3 +1,5 @@
+USE healthcare;
+
 CREATE TABLE User
 (
     UserId      		int				NOT NULL	auto_increment	primary key,

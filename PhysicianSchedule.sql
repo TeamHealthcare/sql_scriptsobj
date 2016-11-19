@@ -1,5 +1,3 @@
-USE healthcare;
-
 CREATE TABLE physicianschedule (
   PhysicianScheduleId int(11) NOT NULL,
   PhysicianId int(11) NOT NULL,
