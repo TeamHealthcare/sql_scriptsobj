@@ -8,14 +8,17 @@ VALUES ('Anthony Nelson', '714-293-1990', '234 S. Marin Dr', 'Huntington Beach',
 INSERT INTO electronicpatient (PatientName, PhoneNumber, Address, City, State, ZipCode, InsuranceCarrierId, DateOfBirth, Gender, Physician)
 VALUES ('Roger Healy', '305-749-1044', '914 Fetwick Dr', 'Cocoa Beach', 'FL', '33512', 4, '1970-11-15', 'M', 'Dr Huxtable');
 
+-- For authentication add this
 INSERT INTO subsystem (System) VALUES ('ElectronicPatient');
 INSERT INTO subsystem (System) VALUES ('MedicalEncounter');
 INSERT INTO subsystem (System) VALUES ('Dashboard');
 
-INSERT INTO user (EmployeeNumber, JobTitle, Password, EmployeeName, DateEntered) VALUES (111, 'Doctor', SHA1('Doctor'), 'Bob Jones', NOW());
-INSERT INTO user (EmployeeNumber, JobTitle, Password, EmployeeName, DateEntered) VALUES (112, 'Nurse', SHA1('Nurse'), 'Jackie Browne', NOW());
-INSERT INTO user (EmployeeNumber, JobTitle, Password, EmployeeName, DateEntered) VALUES (113, 'Therapist', SHA1('Therapist'), 'Glenda Thompson', NOW());
-INSERT INTO user (EmployeeNumber, JobTitle, Password, EmployeeName, DateEntered) VALUES (114, 'Unassigned', SHA1('Unassigned'), 'Jason Rodriguez', NOW());
+alter table `user` modify column Password varchar(512) not null;
+
+INSERT INTO user (EmployeeNumber, JobTitle, Password, EmployeeName, DateEntered) VALUES (111, 'Doctor', SHA2('Doctor', 256), 'Bob Jones', NOW());
+INSERT INTO user (EmployeeNumber, JobTitle, Password, EmployeeName, DateEntered) VALUES (112, 'Nurse', SHA2('Nurse', 256), 'Jackie Browne', NOW());
+INSERT INTO user (EmployeeNumber, JobTitle, Password, EmployeeName, DateEntered) VALUES (113, 'Therapist', SHA2('Therapist', 256), 'Glenda Thompson', NOW());
+INSERT INTO user (EmployeeNumber, JobTitle, Password, EmployeeName, DateEntered) VALUES (114, 'Unassigned', SHA2('Unassigned', 256), 'Jason Rodriguez', NOW());
 
 INSERT INTO usersubsystem (UserId, SubSystemId) VALUES (17, 7);
 INSERT INTO usersubsystem (UserId, SubSystemId) VALUES (17, 8);
@@ -34,4 +37,38 @@ UPDATE user SET Username = 'bjones' WHERE EmployeeNumber = 111;
 UPDATE user SET Username = 'jbrowne' WHERE EmployeeNumber = 112;
 UPDATE user SET Username = 'gthompson' WHERE EmployeeNumber = 113;
 UPDATE user SET Username = 'jrodriguez' WHERE EmployeeNumber = 114;
+
+USE healthcare;
+
+CREATE VIEW vw_userstosystems
+AS
+SELECT
+  `u`.`UserId` AS `UserId`,
+  `u`.`Username` AS `username`,
+  `us`.`SubsystemId` AS `SubsystemId`,
+  `s`.`System` AS `System`
+FROM ((`user` `u`
+  JOIN `usersubsystem` `us`
+    ON ((`u`.`UserId` = `us`.`UserId`)))
+  JOIN `subsystem` `s`
+    ON ((`s`.`SubsystemId` = `us`.`SubsystemId`)));
+	
+	
+-- For service endpoints, add this
+CREATE TABLE service (
+  ServiceId int(11) NOT NULL AUTO_INCREMENT,
+  InsuranceCarrierId int(11) NOT NULL,
+  Description varchar(255) NOT NULL,
+  Cost decimal(19, 2) NOT NULL,
+  UNIQUE INDEX ServiceId (ServiceId),
+  CONSTRAINT FK_service_insurancecarrier_InsuranceCarrierId FOREIGN KEY (InsuranceCarrierId)
+  REFERENCES insurancecarrier (InsuranceCarrierId) ON DELETE RESTRICT ON UPDATE RESTRICT
+)
+ENGINE = INNODB
+AUTO_INCREMENT = 1
+CHARACTER SET utf8
+COLLATE utf8_general_ci
+ROW_FORMAT = DYNAMIC;
+	
+
 
