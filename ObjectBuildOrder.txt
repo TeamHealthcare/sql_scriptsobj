@@ -51,8 +51,8 @@ Install the scripts in the following order:
   which is why it is listed last
 * LabTechnician.sql
 * Medication.sql
-* Appointment.sql
 * AppointmentType.sql
+* Appointment.sql
 * InsuranceCarrier.sql
 * ElectronicPatient.sql
 * Physician.sql

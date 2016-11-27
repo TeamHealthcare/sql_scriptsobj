@@ -1,9 +1,9 @@
 CREATE TABLE InsuranceCarrier
 (
-    InsuranceCarrierId      int				NOT NULL	auto_increment	primary key,
+    InsuranceCarrierId      int        NOT NULL  auto_increment  primary key,
     Carrier                 varchar(255)    NOT NULL,
     Address                 varchar(255)    NOT NULL,
-    Active					bit     		NOT NULL
+    Active          bit         NOT NULL
 );
 
 ALTER TABLE InsuranceCarrier AUTO_INCREMENT = 225;

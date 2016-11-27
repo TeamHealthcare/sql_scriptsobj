@@ -1,6 +1,6 @@
 CREATE TABLE Subsystem
 (
-	SubsystemId		    int				NOT NULL	auto_increment	primary key,
+  SubsystemId        int        NOT NULL  auto_increment  primary key,
     System              varchar(32)     NOT NULL
 );
 
