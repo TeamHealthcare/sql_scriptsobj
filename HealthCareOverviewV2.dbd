@@ -2081,13 +2081,29 @@
               <Y>-167.5 px</Y>
             </CommentOffset>
           </Model>
+          <Model xsi:type="NoteModel">
+            <CustomProperties>
+              <OID>123</OID>
+              <BackgroundColor>248, 216, 216</BackgroundColor>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>-800 px</X>
+              <Y>-260 px</Y>
+            </Location>
+            <Size>
+              <Width>250 px</Width>
+              <Height>75 px</Height>
+            </Size>
+            <Text>The MedicalEncounterLabOrders is a new table.</Text>
+          </Model>
         </Children>
         <ViewPort>
           <ScaleMode>Free</ScaleMode>
           <Scale>1</Scale>
           <Location>
-            <X>-1919 px</X>
-            <Y>-462 px</Y>
+            <X>-1242 px</X>
+            <Y>-454 px</Y>
           </Location>
         </ViewPort>
       </Model>

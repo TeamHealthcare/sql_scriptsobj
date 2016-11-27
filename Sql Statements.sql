@@ -69,6 +69,47 @@ AUTO_INCREMENT = 1
 CHARACTER SET utf8
 COLLATE utf8_general_ci
 ROW_FORMAT = DYNAMIC;
-	
 
+-- Lab Order
+-----------------------------------------------------------------------------
+INSERT INTO labtechnician (LabTechnicianId, LabTechnician) VALUES (1, 'Babe Ruth');
+INSERT INTO labtechnician (LabTechnicianId, LabTechnician) VALUES (2, 'Joe DiMaggio');
+INSERT INTO labtechnician (LabTechnicianId, LabTechnician) VALUES (3, 'Stan Musial');
+INSERT INTO labtechnician (LabTechnicianId, LabTechnician) VALUES (4, 'Pete Rose');
+INSERT INTO labtechnician (LabTechnicianId, LabTechnician) VALUES (5, 'Lou Brock');
 
+INSERT INTO physician (EmployeeId, Name, ContactNumber) VALUES (1, 'Marcus Welby', '702-494-4900');
+INSERT INTO physician (EmployeeId, Name, ContactNumber) VALUES (2, 'Zachary Smith', '619-854-7332');
+INSERT INTO physician (EmployeeId, Name, ContactNumber) VALUES (3, 'Leonard McCoy', '760-774-8103');
+INSERT INTO physician (EmployeeId, Name, ContactNumber) VALUES (4, 'Hawkeye Pierce', '760-335-8544');
+INSERT INTO physician (EmployeeId, Name, ContactNumber) VALUES (5, 'Trapper John', '935-455-8547');
+
+INSERT INTO labtesttype (LabTestTypeId, LabTest, NormalRangeStart, NormalRangeEnd, InvalidRange) 
+VALUES (1, 'Cholsterol', 140, 200, 'Anything not in that range');
+INSERT INTO labtesttype (LabTestTypeId, LabTest, NormalRangeStart, NormalRangeEnd, InvalidRange) 
+VALUES (2, 'High Blood Pressure', 140, 200, 'Systolic values not in that range');
+INSERT INTO labtesttype (LabTestTypeId, LabTest, NormalRangeStart, NormalRangeEnd, InvalidRange) 
+VALUES (3, 'HBA1C', 90, 140, 'Anything not in that range');
+INSERT INTO labtesttype (LabTestTypeId, LabTest, NormalRangeStart, NormalRangeEnd, InvalidRange) 
+VALUES (4, 'Hypoglycemia', 40, 70, 'Anything not in that range');
+INSERT INTO labtesttype (LabTestTypeId, LabTest, NormalRangeStart, NormalRangeEnd, InvalidRange) 
+VALUES (5, 'Creatinine', 0.5, 1.1, 'Anything not in that range');
+
+-- *** NOTE ***, The second column may need to be modified to ensure KF relation is preserved to the electronicpatient table
+INSERT INTO laborder (LabOrderId, PatientId, EmployeeId, LabTestTypeId, LabTestDate, LabTechnicianId, LabTestResults)
+VALUES (1, 25, 1, 1, '2016-10-12', 1, '');
+INSERT INTO laborder (LabOrderId, PatientId, EmployeeId, LabTestTypeId, LabTestDate, LabTechnicianId, LabTestResults)
+VALUES (2, 26, 2, 2, '2016-10-13', 2, '');
+INSERT INTO laborder (LabOrderId, PatientId, EmployeeId, LabTestTypeId, LabTestDate, LabTechnicianId, LabTestResults)
+VALUES (3, 27, 3, 3, '2016-10-14', 3, '');
+INSERT INTO laborder (LabOrderId, PatientId, EmployeeId, LabTestTypeId, LabTestDate, LabTechnicianId, LabTestResults)
+VALUES (4, 29, 4, 4, '2016-10-15', 4, '');
+INSERT INTO laborder (LabOrderId, PatientId, EmployeeId, LabTestTypeId, LabTestDate, LabTechnicianId, LabTestResults)
+VALUES (5, 30, 5, 5, '2016-10-16', 5, '');
+
+-- These are medicalencounter queries that may or may not be needed.
+-- *** NOTE *** The last column PatientId may need to be modified to ensure FK relation is preserved to the electronicpatient table
+INSERT INTO medicalencounter (MedicalEncounterId, EncounterDate, Complaint, VitalSigns, Notes, PharmacyOrder, Diagnosis, TreatmentPlan, Referral, FollowUpNotes, PatientId) 
+VALUES (1, '2016-11-22', 'Foot Pain', 'Normal', 'Patient complaining of foot pain.  Looks normal', '', '', 'Ice foot', '', '', 25);
+INSERT INTO medicalencounter (MedicalEncounterId, EncounterDate, Complaint, VitalSigns, Notes, PharmacyOrder, Diagnosis, TreatmentPlan, Referral, FollowUpNotes, PatientId) 
+VALUES (5, '2016-10-17', 'Migraines', 'Normal', 'Patient complaining of severe headaches.  Looks normal', '', '', 'Prescribe Althoma', '', '', 26);
