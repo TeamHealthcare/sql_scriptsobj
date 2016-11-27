@@ -1,14 +1,14 @@
 CREATE TABLE Appointment
 (
-  AppointmentId    INT        NOT NULL  AUTO_INCREMENT PRIMARY KEY,
-  Appointment      VARCHAR(255)  NOT NULL,
-  AppointmentTypeId   INT        NOT NULL,
-  AppointmentDate    DATE            NOT NULL,
-  StartTime      INT             NOT NULL,
-  EndTime             INT             NOT NULL,
-  DateEntered         DATETIME    NOT NULL,
-  CONSTRAINT          FK_Appointment_AppointmentType FOREIGN KEY (AppointmentTypeId)
-  REFERENCES          AppointmentType(AppointmentTypeId)
+    AppointmentId       INT             NOT NULL    AUTO_INCREMENT PRIMARY KEY,
+    Appointment         VARCHAR(255)    NOT NULL,
+    AppointmentTypeId   INT             NOT NULL,
+    AppointmentDate     DATE            NOT NULL,
+    StartTime           INT             NOT NULL,
+    EndTime             INT             NOT NULL,
+    DateEntered         DATETIME        NOT NULL,
+    CONSTRAINT          FK_Appointment_AppointmentType FOREIGN KEY (AppointmentTypeId)
+    REFERENCES          AppointmentType(AppointmentTypeId)
 );
 
 INSERT INTO Appointment (Appointment, AppointmentTypeId, AppointmentDate, StartTime, EndTime, DateEntered) 

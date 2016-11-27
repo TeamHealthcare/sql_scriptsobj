@@ -54,6 +54,10 @@ Install the scripts in the following order:
 * AppointmentType.sql
 * Appointment.sql
 * InsuranceCarrier.sql
+* ElectronicPatient.sql
+* Physician.sql
+* PhysicianSchedule.sql
+* PhysicianAppointment.sql
 
 There are still a few more tables, but I need to resolve an 
 issue.
