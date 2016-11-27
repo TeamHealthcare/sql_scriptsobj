@@ -113,3 +113,25 @@ INSERT INTO medicalencounter (MedicalEncounterId, EncounterDate, Complaint, Vita
 VALUES (1, '2016-11-22', 'Foot Pain', 'Normal', 'Patient complaining of foot pain.  Looks normal', '', '', 'Ice foot', '', '', 25);
 INSERT INTO medicalencounter (MedicalEncounterId, EncounterDate, Complaint, VitalSigns, Notes, PharmacyOrder, Diagnosis, TreatmentPlan, Referral, FollowUpNotes, PatientId) 
 VALUES (5, '2016-10-17', 'Migraines', 'Normal', 'Patient complaining of severe headaches.  Looks normal', '', '', 'Prescribe Althoma', '', '', 26);
+
+INSERT INTO medicalencounterlaborders (ME_LabOrderId, MedicalEncounterId, LabOrderId) VALUES (1, 1, 1);
+INSERT INTO medicalencounterlaborders (ME_LabOrderId, MedicalEncounterId, LabOrderId) VALUES (2, 2, 2);
+INSERT INTO medicalencounterlaborders (ME_LabOrderId, MedicalEncounterId, LabOrderId) VALUES (3, 3, 3);
+INSERT INTO medicalencounterlaborders (ME_LabOrderId, MedicalEncounterId, LabOrderId) VALUES (4, 4, 4);
+INSERT INTO medicalencounterlaborders (ME_LabOrderId, MedicalEncounterId, LabOrderId) VALUES (5, 5, 5);
+
+CREATE VIEW vw_laborders
+AS
+SELECT 
+	mel.MedicalEncounterId, lo.LabOrderId, p.Name AS Physician 
+	, ltt.LabTest, ltt.NormalRangeStart, ltt.NormalRangeEnd
+	, lo.LabTestDate, lt.LabTechnician, lo.LabTestResults
+FROM 
+	medicalencounterlaborders mel 
+		INNER JOIN laborder lo ON mel.LabOrderId = lo.LabOrderId 
+		INNER JOIN labtechnician lt ON lo.LabTechnicianId = lt.LabTechnicianId 
+		INNER JOIN labtesttype ltt ON lo.LabTestTypeId = ltt.LabTestTypeId 
+		INNER JOIN physician p ON lo.EmployeeId = p.EmployeeId
+
+SELECT MedicalEncounterId, LabOrderId, Physician, LabTest, NormalRangeStart, NormalRangeEnd
+	, LabTestDate, LabTechnician, LabTestResults FROM vw_laborders
